@@ -22,7 +22,6 @@ def get_player_page_yuh(url):
 
 
 def get_player_regular_season_stats(player_season_url):
-    #player_season_stats = {'player': []}
     try:
         player_season_page = requests.get(player_season_url)
     except Exception as e:
@@ -34,23 +33,6 @@ def get_player_regular_season_stats(player_season_url):
     except Exception as e:
         print('Couldn\'t find player data for this season...')
         return ''
-    #for game in table_summary[1:]:
-    #    if game.has_attr('class') and game['class'][0] == 'thead':
-    #        continue
-    #    else:
-    #        game = list(game)
-    #        if game[-1].text in ('Inactive', 'Did Not Dress', 'Did Not Play'):
-    #            print('Player did not play... Skipping...')
-    #            continue
-    #        else:
-    #            print('Getting player game stats...')
-    ##            player_season_stats['player'].append(player_name)
-    #            for stat in game:
-    #                if stat.get('data-stat') not in player_season_stats:
-    #                    player_season_stats[stat.get('data-stat')] = []
-    #                    player_season_stats[stat.get('data-stat')].append(stat.text)
-    #                else:
-    #                    player_season_stats[stat.get('data-stat')].append(stat.text)
 
     print('Fetched game stats...')
     return table_summary
